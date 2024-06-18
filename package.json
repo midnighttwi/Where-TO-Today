@@ -13,8 +13,14 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@vuemap/vue-amap": "^2.1.2",
+    "@vuemap/vue-amap-extra": "^2.1.4",
+    "@vuemap/vue-amap-loca": "^2.1.2",
+    "element-plus": "^2.7.5",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
+    "vue-amap": "^0.5.10",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
@@ -25,7 +31,10 @@
     "eslint-plugin-vue": "^9.23.0",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "prettier": "^3.2.5",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
     "vite": "^5.2.8"
   },
   "lint-staged": {
