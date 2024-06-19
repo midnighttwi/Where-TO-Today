@@ -8,9 +8,9 @@ export default {
 </script>
 
 <template>
-    <dev>
 
-    </dev>
+    建筑风采
+
 </template>
 
 <style scoped></style>
