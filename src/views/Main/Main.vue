@@ -6,9 +6,24 @@ export default {
 <script setup>
 import {
     MapLocation,
-    School
+    School,
+    Search
 }
-    from '@element-plus/icons-vue'
+    from '@element-plus/icons-vue';
+import ASearch from '@/components/ASearch.vue';
+import PathSearch from '@/components/PathSearch.vue';
+import { ref } from 'vue'
+const value = ref('')
+const options = [
+    {
+        value: 'POI搜索',
+        label: 'POI搜索',
+    },
+    {
+        value: '路径规划',
+        label: '路径规划',
+    },]
+
 </script>
 
 <template>
@@ -33,8 +48,32 @@ import {
             </el-menu>
         </el-aside>
         <el-container>
-            <el-header id="header">中国地质大学未来城校区</el-header>
-            <el-main>
+            <el-header id="header">
+                <el-col :span="16">
+                    <span>中国地质大学未来城校区</span>
+                </el-col>
+                <el-col :span="5">
+                    <div v-if="value === '路径规划'">
+                        <PathSearch></PathSearch>
+                    </div>
+                    <div v-else>
+                        <ASearch></ASearch>
+                    </div>
+                </el-col>
+                <el-col :span="3">
+                    <el-row justify="space-evenly">
+                        <el-icon>
+                            <Search />
+                        </el-icon>
+                        <span> 搜索选项：</span>
+                        <el-select v-model="value" filterable placeholder="POI搜索" style="width: 100px">
+                            <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                :value="item.value" />
+                        </el-select>
+                    </el-row>
+                </el-col>
+            </el-header>
+            <el-main id="homemain">
                 <router-view></router-view>
             </el-main>
         </el-container>
@@ -66,5 +105,26 @@ import {
         font-weight: 400;
 
     }
+}
+
+#homemain {
+    padding: 0;
+}
+
+.el-row {
+    margin-bottom: 0px;
+}
+
+.el-row:last-child {
+    margin-bottom: 0;
+}
+
+.el-col {
+    border-radius: 4px;
+}
+
+.grid-content {
+    border-radius: 4px;
+    min-height: 36px;
 }
 </style>
