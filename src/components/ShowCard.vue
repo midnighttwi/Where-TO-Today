@@ -1,52 +1,64 @@
 <script setup>
+import { defineProps } from 'vue'
 
-const imgsrc = defineModel('imgsrc')
-const tabname = defineModel('tabname')
+const props = defineProps({
+    feature: {
+        type: Object,
+        required: true
+    },
+    imgsrc: {
+        type: String,
+        required: true
+    }
+})
+const { feature, imgsrc } = props
+console.log(imgsrc)
 </script>
 
 <template>
     <el-row>
         <el-col :span="12">
             <el-col :span="24">
-                <el-card style="max-width: 850px;max-height: 550px">
-                    <img :src='imgsrc' style="width: 800px;height: 500px" />
+                <el-card style="max-width: 50vw; max-height: 65vh">
+                    <img :src="imgsrc" style="width: 43.4vw; height: 60vh" />
                 </el-card>
             </el-col>
             <el-col :span="24">
-                <el-row style="padding-top: 20px;padding-left: 20px" justify="center">
+                <el-row style="padding-top: 1vh; padding-left: 0" justify="center">
                     <el-col :span="12">
-                        <el-card style="width: 350px; height: 70px" shadow="always">Always</el-card>
-                        <el-card style="width: 350px; height: 70px; margin-top: 20px;" shadow="hover">Hover</el-card>
+                        <el-card class="text" style="width: 20vw; height: 9vh" shadow="always">建筑物名称：{{
+                            feature.properties.name }}</el-card>
+                        <el-card class="text" style="width: 20vw; height: 9vh; margin-top: 1vh"
+                            shadow="hover">建筑物行政归属：{{ feature.properties.info }}</el-card>
                     </el-col>
                     <el-col :span="3">
-                        <el-card style="width: 100px; height: 162px;" shadow="hover">
-                            <h2 style="padding-top: 25%;padding-left: 6%">开放时间</h2>
+                        <el-card class="text" style="width: 4vw; height: 19vh" shadow="hover">
+                            <h2 style="padding-top: 0vh; padding-left: 0">开放时间</h2>
                         </el-card>
                     </el-col>
                     <el-col :span="9">
-                        <el-card style="width: 270px; height: 80px; padding-left: 0px;" shadow="hover">
-                            <h3 style="margin-top: 12px;">工作日:{{ tabname }}</h3>
-                        </el-card>
-                        <el-card style="width: 270px; height: 80px" shadow="hover">
-                            <h3 style="margin-top: 12px;">休息日:</h3>
+                        <el-card class="text" style="width: 17vw; height: 19vh" shadow="hover">
+                            <h3 style="margin-top: 0vh">{{ feature.properties.open_time }}</h3>
                         </el-card>
                     </el-col>
                 </el-row>
             </el-col>
         </el-col>
         <el-col :span="12">
-            <el-card style="width: 800px; height: 710px; padding-top: 20px;margin-left: 20px">
+            <el-card style="width: 43vw; height: 83vh; padding-top: 2vh; margin-left: 2vw">
                 <template #header>
-                    <div class="card-header" style="display: flex; justify-content: center; align-items: center;">
-                        <h1 style="text-align: center">
-                            建筑介绍
-                        </h1>
+                    <div class="card-header" style="display: flex; justify-content: center; align-items: center">
+                        <h1 style="text-align: center">建筑介绍</h1>
                     </div>
                 </template>
-                <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
+                <p class="text">{{ feature.properties.建筑介绍 }}</p>
             </el-card>
         </el-col>
     </el-row>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* .text {
+  font-size: 8px;
+} */
+</style>

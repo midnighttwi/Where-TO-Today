@@ -14,11 +14,12 @@
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
+    "@babel/eslint-parser": "^7.24.7",
     "@element-plus/icons-vue": "^2.3.1",
     "@vuemap/vue-amap": "^2.1.2",
     "@vuemap/vue-amap-extra": "^2.1.4",
     "@vuemap/vue-amap-loca": "^2.1.2",
-    "babel-eslint": "^10.1.0",
+    "axios": "^1.7.2",
     "element-plus": "^2.7.5",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
